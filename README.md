@@ -1,6 +1,7 @@
 # Vue 3 + Cesium + Pinia 三维地球应用
 
-一个基于 Vue 3、Cesium、Pinia 和 Element Plus 的现代化三维地球可视化应用，支持全球地理数据展示、实体管理和状态持久化。
+一个基于 Vue 3、Cesium、Pinia 和 Element
+Plus 的现代化三维地球可视化应用，支持全球地理数据展示、实体管理和状态持久化。
 
 ## ✨ 特性
 
@@ -145,7 +146,7 @@ const entity = cesiumStore.addEntity({
     pixelSize: 10,
     color: Cesium.Color.YELLOW,
     outlineColor: Cesium.Color.BLACK,
-    outlineWidth: 2,
+    outlineWidth: 2
   }
 })
 ```

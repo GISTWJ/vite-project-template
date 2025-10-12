@@ -1,6 +1,7 @@
 # ESLint 配置指南
 
-本项目使用 ESLint 9.x 的 flat config 格式，集成了 Vue 3、Prettier 和现代 JavaScript 的最佳实践。
+本项目使用 ESLint 9.x 的 flat config 格式，集成了 Vue
+3、Prettier 和现代 JavaScript 的最佳实践。
 
 ## 📋 配置文件说明
 

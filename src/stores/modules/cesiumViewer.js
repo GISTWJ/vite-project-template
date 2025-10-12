@@ -10,26 +10,26 @@ export const useCesiumViewerStore = defineStore('cesium', {
     viewerConfig: {
       homePosition: null,
       cameraPosition: null,
-      selectedEntity: null,
+      selectedEntity: null
       // 其他可以序列化的配置
-    },
+    }
   }),
 
   getters: {
-    isViewerReady: (state) => state.viewer !== null,
-    getViewer: (state) => state.viewer,
-    getCameraPosition: (state) => {
+    isViewerReady: state => state.viewer !== null,
+    getViewer: state => state.viewer,
+    getCameraPosition: state => {
       if (state.viewer) {
-        const camera = state.viewer.camera
+        const { camera } = state.viewer
         return {
           position: camera.position.clone(),
           heading: camera.heading,
           pitch: camera.pitch,
-          roll: camera.roll,
+          roll: camera.roll
         }
       }
       return null
-    },
+    }
   },
 
   actions: {
@@ -58,7 +58,7 @@ export const useCesiumViewerStore = defineStore('cesium', {
         navigationInstructionsInitiallyVisible: false,
         scene3DOnly: true,
         shouldAnimate: true,
-        ...options,
+        ...options
       }
 
       try {
@@ -71,8 +71,8 @@ export const useCesiumViewerStore = defineStore('cesium', {
             orientation: {
               heading: this.viewerConfig.cameraPosition.heading,
               pitch: this.viewerConfig.cameraPosition.pitch,
-              roll: this.viewerConfig.cameraPosition.roll,
-            },
+              roll: this.viewerConfig.cameraPosition.roll
+            }
           })
         }
 
@@ -105,12 +105,12 @@ export const useCesiumViewerStore = defineStore('cesium', {
      */
     saveCameraPosition() {
       if (this.viewer) {
-        const camera = this.viewer.camera
+        const { camera } = this.viewer
         this.viewerConfig.cameraPosition = {
           position: camera.position.clone(),
           heading: camera.heading,
           pitch: camera.pitch,
-          roll: camera.roll,
+          roll: camera.roll
         }
       }
     },
@@ -126,8 +126,8 @@ export const useCesiumViewerStore = defineStore('cesium', {
           orientation: {
             heading: position.heading,
             pitch: position.pitch,
-            roll: position.roll,
-          },
+            roll: position.roll
+          }
         })
       }
     },
@@ -171,16 +171,16 @@ export const useCesiumViewerStore = defineStore('cesium', {
       if (this.viewer) {
         this.viewer.camera.flyTo({
           destination,
-          duration,
+          duration
         })
       }
-    },
+    }
   },
 
   // 持久化配置 - 只持久化可序列化的配置信息，不持久化 Viewer 实例
   persist: {
     key: 'cesium-store',
     storage: localStorage,
-    paths: ['viewerConfig'], // 只持久化配置信息，不持久化 viewer 实例
-  },
+    paths: ['viewerConfig'] // 只持久化配置信息，不持久化 viewer 实例
+  }
 })

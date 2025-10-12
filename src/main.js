@@ -1,12 +1,12 @@
-import { createApp } from "vue";
+import { createApp } from 'vue'
 // pinia store
-import pinia from "@/stores";
-import "./style.css";
+import pinia from '@/stores'
+import './style.css'
 
-import App from "./App.vue";
+import App from './App.vue'
 
 // 导入 Cesium 配置
-import "./config/cesium-config";
+import './config/cesium-config'
 
-const app = createApp(App);
-app.use(pinia).mount("#app");
+const app = createApp(App)
+app.use(pinia).mount('#app')

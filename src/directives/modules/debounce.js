@@ -6,7 +6,7 @@
 const debounce = {
   mounted(el, binding) {
     if (typeof binding.value !== 'function') {
-      throw 'callback must be a function'
+      throw new Error('callback must be a function')
     }
     let timer = null
     el.__handleClick__ = function () {
@@ -21,7 +21,7 @@ const debounce = {
   },
   beforeUnmount(el) {
     el.removeEventListener('click', el.__handleClick__)
-  },
+  }
 }
 
 export default debounce

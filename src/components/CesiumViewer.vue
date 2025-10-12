@@ -40,7 +40,7 @@ onMounted(async () => {
       await cesiumStore.initViewer(viewerContainer.value, {
         // 可以在这里添加自定义配置
         terrainProvider: undefined, // 使用默认地形
-        skyBox: undefined, // 使用默认天空盒
+        skyBox: undefined // 使用默认天空盒
       })
 
       console.log('Cesium Viewer 初始化完成', cesiumStore)
@@ -81,7 +81,7 @@ const addSampleEntity = () => {
         color: Cesium.Color.YELLOW,
         outlineColor: Cesium.Color.BLACK,
         outlineWidth: 2,
-        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
       },
       label: {
         text: '北京',
@@ -90,8 +90,8 @@ const addSampleEntity = () => {
         fillColor: Cesium.Color.WHITE,
         outlineColor: Cesium.Color.BLACK,
         outlineWidth: 2,
-        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-      },
+        style: Cesium.LabelStyle.FILL_AND_OUTLINE
+      }
     })
 
     // // 飞行到实体位置

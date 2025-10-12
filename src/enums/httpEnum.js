@@ -6,7 +6,7 @@ const ResultEnum = {
   ERROR: 500,
   OVERDUE: 401,
   TIMEOUT: 30000, // 请求超时，单位为毫秒
-  TYPE: 'success',
+  TYPE: 'success'
 }
 
 /**
@@ -17,7 +17,7 @@ const RequestEnum = {
   POST: 'POST',
   PATCH: 'PATCH',
   PUT: 'PUT',
-  DELETE: 'DELETE',
+  DELETE: 'DELETE'
 }
 
 /**
@@ -31,7 +31,7 @@ const ContentTypeEnum = {
   // 表单提交，一般配合 qs 库使用
   FORM_URLENCODED: 'application/x-www-form-urlencoded;charset=UTF-8',
   // 文件上传
-  FORM_DATA: 'multipart/form-data;charset=UTF-8',
+  FORM_DATA: 'multipart/form-data;charset=UTF-8'
 }
 
 export { ResultEnum, RequestEnum, ContentTypeEnum }

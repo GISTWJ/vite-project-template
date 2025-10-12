@@ -9,7 +9,7 @@ const piniaPersistConfig = (key, paths) => {
     key,
     storage: localStorage,
     // storage: sessionStorage,
-    paths,
+    paths
   }
   return persist
 }
