@@ -1,0 +1,56 @@
+# 依赖目录
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# 构建输出
+dist/
+build/
+coverage/
+
+# 缓存目录
+.vite/
+.cache/
+.temp/
+
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 压缩文件
+*.min.js
+*.min.css
+
+# 静态资源
+public/
+assets/
+
+# 文档
+*.md
+docs/
+
+# 配置文件
+*.config.js
+*.config.ts
+vite.config.js
+vite.config.ts
