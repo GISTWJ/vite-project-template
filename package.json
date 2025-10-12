@@ -14,10 +14,17 @@
     "lint:format": "npm run lint && npm run format"
   },
   "dependencies": {
+    "@vitejs/plugin-vue-jsx": "^5.1.1",
     "cesium": "^1.120.0",
+    "code-inspector-plugin": "^1.2.10",
     "element-plus": "^2.11.4",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.5.0",
+    "rollup-plugin-visualizer": "^6.0.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-vue-devtools": "^8.0.2",
     "vue": "^3.5.22"
   },
   "devDependencies": {

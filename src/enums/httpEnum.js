@@ -12,20 +12,20 @@ export const ResultEnum = {
   ERROR: 500, // 服务器错误
   OVERDUE: 401, // 登录过期/未授权
   TIMEOUT: 30000, // 请求超时时间（30秒）
-  TYPE: 'success' // 成功类型标识
-}
+  TYPE: "success" // 成功类型标识
+};
 
 /**
  * HTTP请求方法枚举
  * 定义支持的HTTP请求方法
  */
 export const RequestEnum = {
-  GET: 'GET', // 获取资源
-  POST: 'POST', // 创建资源
-  PATCH: 'PATCH', // 部分更新资源
-  PUT: 'PUT', // 完全更新资源
-  DELETE: 'DELETE' // 删除资源
-}
+  GET: "GET", // 获取资源
+  POST: "POST", // 创建资源
+  PATCH: "PATCH", // 部分更新资源
+  PUT: "PUT", // 完全更新资源
+  DELETE: "DELETE" // 删除资源
+};
 
 /**
  * 内容类型枚举
@@ -33,17 +33,15 @@ export const RequestEnum = {
  */
 export const ContentTypeEnum = {
   // JSON格式
-  JSON: 'application/json;charset=UTF-8',
-
+  JSON: "application/json;charset=UTF-8",
   // 纯文本格式
-  TEXT: 'text/plain;charset=UTF-8',
-
+  TEXT: "text/plain;charset=UTF-8",
   // 表单编码格式（一般配合qs使用）
-  FORM_URLENCODED: 'application/x-www-form-urlencoded;charset=UTF-8',
+  FORM_URLENCODED: "application/x-www-form-urlencoded;charset=UTF-8",
 
   // 表单数据格式（用于文件上传）
-  FORM_DATA: 'multipart/form-data;charset=UTF-8'
-}
+  FORM_DATA: "multipart/form-data;charset=UTF-8"
+};
 
 /**
  * 使用示例：
