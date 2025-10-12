@@ -29,9 +29,15 @@ importers:
       rollup-plugin-visualizer:
         specifier: ^6.0.4
         version: 6.0.4(rollup@4.52.4)
+      unplugin-vue-setup-extend-plus:
+        specifier: ^1.0.1
+        version: 1.0.1
       vite-plugin-compression:
         specifier: ^0.5.1
         version: 0.5.1(vite@7.1.9(@types/node@24.7.2)(terser@5.44.0))
+      vite-plugin-eslint:
+        specifier: ^1.8.1
+        version: 1.8.1(eslint@9.37.0)(vite@7.1.9(@types/node@24.7.2)(terser@5.44.0))
       vite-plugin-html:
         specifier: ^3.2.2
         version: 3.2.2(vite@7.1.9(@types/node@24.7.2)(terser@5.44.0))
@@ -59,7 +65,7 @@ importers:
         version: 10.1.8(eslint@9.37.0)
       eslint-plugin-prettier:
         specifier: ^5.5.4
-        version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.37.0))(eslint@9.37.0)(prettier@3.6.2)
+        version: 5.5.4(@types/eslint@8.56.12)(eslint-config-prettier@10.1.8(eslint@9.37.0))(eslint@9.37.0)(prettier@3.6.2)
       eslint-plugin-vue:
         specifier: ^10.5.0
         version: 10.5.0(eslint@9.37.0)(vue-eslint-parser@10.2.0(eslint@9.37.0))
@@ -700,6 +706,9 @@ packages:
 
   '@tweenjs/tween.js@25.0.0':
     resolution: {integrity: sha512-XKLA6syeBUaPzx4j3qwMqzzq+V4uo72BnlbOjmuljLrRqdsd3qnzvZZoxvMHZ23ndsRS4aufU6JOZYpCbU6T1A==}
+
+  '@types/eslint@8.56.12':
+    resolution: {integrity: sha512-03ruubjWyOHlmljCVoxSuNDdmfZDzsrrz0P2LeJsOXr+ZwFQ+0yQIwNCwt/GYhV7Z31fgtXJTAEs+FYlEL851g==}
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
@@ -2009,6 +2018,10 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  magic-string@0.26.7:
+    resolution: {integrity: sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==}
+    engines: {node: '>=12'}
+
   magic-string@0.30.19:
     resolution: {integrity: sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw==}
 
@@ -2420,6 +2433,11 @@ packages:
       rollup:
         optional: true
 
+  rollup@2.79.2:
+    resolution: {integrity: sha512-fS6iqSPZDs3dr/y7Od6y5nha8dW1YnbgtsyotCVvoFGKbERG++CVRFv1meyGDE1SNItQA8BrnCw7ScdAhRJ3XQ==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+
   rollup@4.52.4:
     resolution: {integrity: sha512-CLEVl+MnPAiKh5pl4dEWSyMTpuflgNQiLGhMv8ezD5W/qP8AKvmYpCOKRRNOh7oRKnauBZ4SyeYkMS+1VSyKwQ==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
@@ -2548,6 +2566,10 @@ packages:
   source-map@0.7.6:
     resolution: {integrity: sha512-i5uvt8C3ikiWeNZSVZNWcfZPItFQOsYTUAOkcUPGd8DqDy1uOUikjt5dG+uRlwyvR108Fb9DOd4GvXfT0N2/uQ==}
     engines: {node: '>= 12'}
+
+  sourcemap-codec@1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
 
   speakingurl@14.0.1:
     resolution: {integrity: sha512-1POYv7uv2gXoyGFpBCmpDVSNV74IfsWlDW216UPjbWufNf+bSU6GdbDsxdcxtfwb4xlI3yxzOTKClUosxARYrQ==}
@@ -2758,6 +2780,13 @@ packages:
       '@nuxt/kit':
         optional: true
 
+  unplugin-vue-setup-extend-plus@1.0.1:
+    resolution: {integrity: sha512-mW2IzkyJITyspAV/LEdnEyE1CJip9jB5fCeaVv7Q6X0oJyDrOxXoB+jyet0q5pRJNjErbjQx950/8NPTvbqLTQ==}
+
+  unplugin@1.16.1:
+    resolution: {integrity: sha512-4/u/j4FrCKdi17jaxuJA0jClGxB1AvU2hw/IuayPc4ay1XGaJs/rbb4v5WKwAjNifjmXK9PIFyuPiaK8azyR9w==}
+    engines: {node: '>=14.0.0'}
+
   unplugin@2.3.10:
     resolution: {integrity: sha512-6NCPkv1ClwH+/BGE9QeoTIl09nuiAt0gS28nn1PvYXsGKRwM2TCbFA2QiilmehPDTXIe684k4rZI1yl3A1PCUw==}
     engines: {node: '>=18.12.0'}
@@ -2807,6 +2836,12 @@ packages:
     resolution: {integrity: sha512-5QJKBDc+gNYVqL/skgFAP81Yuzo9R+EAf19d+EtsMF/i8kFUpNi3J/H01QD3Oo8zBQn+NzoCIFkpPLynoOzaJg==}
     peerDependencies:
       vite: '>=2.0.0'
+
+  vite-plugin-eslint@1.8.1:
+    resolution: {integrity: sha512-PqdMf3Y2fLO9FsNPmMX+//2BF5SF8nEWspZdgl4kSt7UvHDRHVVfHvxsD7ULYzZrJDGRxR81Nq7TOFgwMnUang==}
+    peerDependencies:
+      eslint: '>=7'
+      vite: '>=2'
 
   vite-plugin-html@3.2.2:
     resolution: {integrity: sha512-vb9C9kcdzcIo/Oc3CLZVS03dL5pDlOFuhGlZYDCJ840BhWl/0nGeZWf3Qy7NlOayscY4Cm/QRgULCQkEZige5Q==}
@@ -3534,6 +3569,11 @@ snapshots:
   '@trysound/sax@0.2.0': {}
 
   '@tweenjs/tween.js@25.0.0': {}
+
+  '@types/eslint@8.56.12':
+    dependencies:
+      '@types/estree': 1.0.8
+      '@types/json-schema': 7.0.15
 
   '@types/estree@1.0.8': {}
 
@@ -4333,13 +4373,14 @@ snapshots:
     dependencies:
       eslint: 9.37.0
 
-  eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.37.0))(eslint@9.37.0)(prettier@3.6.2):
+  eslint-plugin-prettier@5.5.4(@types/eslint@8.56.12)(eslint-config-prettier@10.1.8(eslint@9.37.0))(eslint@9.37.0)(prettier@3.6.2):
     dependencies:
       eslint: 9.37.0
       prettier: 3.6.2
       prettier-linter-helpers: 1.0.0
       synckit: 0.11.11
     optionalDependencies:
+      '@types/eslint': 8.56.12
       eslint-config-prettier: 10.1.8(eslint@9.37.0)
 
   eslint-plugin-vue@10.5.0(eslint@9.37.0)(vue-eslint-parser@10.2.0(eslint@9.37.0)):
@@ -5015,6 +5056,10 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+  magic-string@0.26.7:
+    dependencies:
+      sourcemap-codec: 1.4.8
+
   magic-string@0.30.19:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -5437,6 +5482,10 @@ snapshots:
     optionalDependencies:
       rollup: 4.52.4
 
+  rollup@2.79.2:
+    optionalDependencies:
+      fsevents: 2.3.3
+
   rollup@4.52.4:
     dependencies:
       '@types/estree': 1.0.8
@@ -5618,6 +5667,8 @@ snapshots:
   source-map@0.6.1: {}
 
   source-map@0.7.6: {}
+
+  sourcemap-codec@1.4.8: {}
 
   speakingurl@14.0.1: {}
 
@@ -5899,6 +5950,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  unplugin-vue-setup-extend-plus@1.0.1:
+    dependencies:
+      '@vue/compiler-sfc': 3.5.22
+      magic-string: 0.26.7
+      unplugin: 1.16.1
+
+  unplugin@1.16.1:
+    dependencies:
+      acorn: 8.15.0
+      webpack-virtual-modules: 0.6.2
+
   unplugin@2.3.10:
     dependencies:
       '@jridgewell/remapping': 2.3.5
@@ -5949,6 +6011,14 @@ snapshots:
       vite: 7.1.9(@types/node@24.7.2)(terser@5.44.0)
     transitivePeerDependencies:
       - supports-color
+
+  vite-plugin-eslint@1.8.1(eslint@9.37.0)(vite@7.1.9(@types/node@24.7.2)(terser@5.44.0)):
+    dependencies:
+      '@rollup/pluginutils': 4.2.1
+      '@types/eslint': 8.56.12
+      eslint: 9.37.0
+      rollup: 2.79.2
+      vite: 7.1.9(@types/node@24.7.2)(terser@5.44.0)
 
   vite-plugin-html@3.2.2(vite@7.1.9(@types/node@24.7.2)(terser@5.44.0)):
     dependencies:
