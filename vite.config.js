@@ -1,14 +1,13 @@
-import { resolve } from "path";
-import { defineConfig, loadEnv } from "vite";
-import { wrapperEnv } from "./build/getEnv";
-import { createVitePlugins } from "./build/plugins";
-import { createProxy } from "./build/proxy";
+import { resolve } from 'path'
+import { defineConfig, loadEnv } from 'vite'
+import { wrapperEnv } from './build/getEnv'
+import { createVitePlugins } from './build/plugins'
+import { createProxy } from './build/proxy'
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const root = process.cwd();
-  const env = loadEnv(mode, root);
-  const viteEnv = wrapperEnv(env);
+  const root = process.cwd()
+  const env = loadEnv(mode, root)
+  const viteEnv = wrapperEnv(env)
 
   return {
     base: viteEnv.VITE_PUBLIC_PATH,
@@ -16,25 +15,12 @@ export default defineConfig(({ mode }) => {
     plugins: createVitePlugins(viteEnv),
     resolve: {
       alias: {
-        "@": resolve(__dirname, "src")
+        '@': resolve(__dirname, 'src')
       }
     },
-    // Cesium 配置
-    define: {
-      // 设置 Cesium 基础 URL
-      CESIUM_BASE_URL: JSON.stringify("https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/")
-    },
     build: {
-      // // 确保 Cesium 资源正确复制
-      // rollupOptions: {
-      //   output: {
-      //     manualChunks: {
-      //       cesium: ["cesium"]
-      //     }
-      //   }
-      // }
-      outDir: "dist",
-      minify: "esbuild",
+      outDir: 'dist',
+      minify: 'esbuild',
       // esbuild 打包更快，但是不能去除 console.log，terser打包慢，但能去除 console.log
       // minify: "terser",
       // terserOptions: {
@@ -51,14 +37,14 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           // Static resource classification and packaging
-          chunkFileNames: "assets/js/[name]-[hash].js",
-          entryFileNames: "assets/js/[name]-[hash].js",
-          assetFileNames: "assets/[ext]/[name]-[hash].[ext]"
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
         }
       }
     },
     server: {
-      host: "0.0.0.0",
+      host: '0.0.0.0',
       port: viteEnv.VITE_PORT,
       open: viteEnv.VITE_OPEN,
       cors: true,
@@ -66,12 +52,15 @@ export default defineConfig(({ mode }) => {
       proxy: createProxy(viteEnv.VITE_PROXY),
       fs: {
         // 允许访问 Cesium 的静态资源
-        allow: [".."]
+        allow: ['..']
       }
     },
-
-    optimizeDeps: {
-      include: ["cesium"]
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "@/styles/variables.scss" as *; @use "@/styles/mixins.scss" as *;`
+        }
+      }
     }
-  };
-});
+  }
+})

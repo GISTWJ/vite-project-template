@@ -288,7 +288,7 @@ export default [
           tabWidth: 2, // 缩进宽度
           useTabs: false, // 使用空格缩进
           printWidth: 100, // 行宽
-          endOfLine: 'lf', // 行尾符
+          endOfLine: 'auto', // 行尾符（兼容 Windows CRLF 与 Unix LF）
           arrowParens: 'avoid', // 箭头函数参数括号
           bracketSpacing: true, // 对象大括号间距
           jsxBracketSameLine: false, // JSX 大括号位置

@@ -1,0 +1,40 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+@use './cesium.scss';
+
+/* 全局基础样式 */
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: $background-color;
+  color: $text-color;
+}
+
+/* 全局滚动条（WebKit）*/
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: $radius-sm;
+}
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 通用面板类，可在控制面板/工具条复用 */
+.panel {
+  @include panel();
+  padding: $spacing-md;
+}
+
+/* 按钮示例（如 Cesium 控制条内）*/
+.glass-button {
+  @include glass-button();
+}
+
+/* 引入 Cesium 控件覆盖样式（如在项目中使用 Cesium）*/
+
