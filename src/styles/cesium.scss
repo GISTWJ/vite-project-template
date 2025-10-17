@@ -1,0 +1,51 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+
+/* 覆盖 Cesium 默认控件样式，更适合深色三维场景 */
+
+.cesium-viewer,
+.cesium-widget,
+.cesium-widget-credits {
+  color: $text-color;
+}
+
+.cesium-viewer-toolbar {
+  position: absolute;
+  top: $spacing-sm;
+  left: $spacing-sm;
+  z-index: $z-toolbar;
+  padding: $spacing-xs;
+  @media (max-width: 600px) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.cesium-viewer .cesium-toolbar-button, .cesium-button {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: $text-color;
+  border-radius: $radius-sm;
+}
+
+.cesium-viewer .cesium-toolbar-button:hover, .cesium-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.cesium-infoBox, .cesium-selection-wrapper {
+  @include panel();
+}
+
+.cesium-viewer-cesiumInspectorContainer {
+  @include panel();
+}
+
+.cesium-viewer-animationContainer,
+.cesium-viewer-timelineContainer {
+  background: rgba(5, 12, 20, 0.55);
+}
+
+.cesium-viewer-bottom {
+  color: $muted-text-color;
+}
+

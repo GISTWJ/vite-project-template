@@ -1,0 +1,27 @@
+$primary-color: #409eff; // Element Plus 默认主题色，便于与 Cesium 控件协调
+$background-color: #0b1a2b; // 深色背景，适合三维场景
+$panel-bg: rgba(0, 0, 0, 0.45);
+$panel-border: rgba(255, 255, 255, 0.12);
+$text-color: #e6e6e6;
+$muted-text-color: #a8b0b8;
+$accent-color: #ffd166;
+
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 20px;
+$spacing-xl: 24px;
+
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+
+$shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.25);
+$shadow-hard: 0 10px 24px rgba(0, 0, 0, 0.4);
+
+$z-toolbar: 1000;
+$z-toast: 2000;
+$z-tooltip: 2100;
+$z-dialog: 2200;
+

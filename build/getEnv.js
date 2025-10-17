@@ -3,7 +3,7 @@
  * 用于处理 Vite 环境变量和模式判断
  */
 
-import path from "path";
+import path from 'path'
 
 /**
  * 判断是否为开发模式
@@ -11,7 +11,7 @@ import path from "path";
  * @returns {boolean} 是否为开发模式
  */
 export function isDevFn(mode) {
-  return mode === "development";
+  return mode === 'development'
 }
 
 /**
@@ -20,7 +20,7 @@ export function isDevFn(mode) {
  * @returns {boolean} 是否为生产模式
  */
 export function isProdFn(mode) {
-  return mode === "production";
+  return mode === 'production'
 }
 
 /**
@@ -29,7 +29,7 @@ export function isProdFn(mode) {
  * @returns {boolean} 是否为测试模式
  */
 export function isTestFn(mode) {
-  return mode === "test";
+  return mode === 'test'
 }
 
 /**
@@ -38,7 +38,7 @@ export function isTestFn(mode) {
  * @returns {boolean} 是否生成报告
  */
 export function isReportMode() {
-  return process.env.VITE_REPORT === "true";
+  return process.env.VITE_REPORT === 'true'
 }
 
 /**
@@ -55,41 +55,60 @@ export function isReportMode() {
  * @returns {Object} 处理后的环境变量对象
  */
 export function wrapperEnv(envConf) {
-  const ret = {};
+  const ret = {}
+  console.log(envConf, ret)
 
   // 遍历所有环境变量
   for (const envName of Object.keys(envConf)) {
-    let realName = envConf[envName];
+    let realName = envConf[envName]
 
     // 处理换行符转义
-    realName = realName.replace(/\\n/g, "\n");
+    realName = realName.replace(/\\n/g, '\n')
 
     // 转换布尔值字符串
-    if (realName === "true") {
-      realName = true;
-    } else if (realName === "false") {
-      realName = false;
+    if (realName === 'true') {
+      realName = true
+    } else if (realName === 'false') {
+      realName = false
     }
 
     // 特殊处理端口号，转换为数字
-    if (envName === "VITE_PORT") {
-      realName = Number(realName);
+    if (envName === 'VITE_PORT') {
+      realName = Number(realName)
     }
 
     // 特殊处理代理配置，解析JSON字符串
-    if (envName === "VITE_PROXY") {
+    if (envName === 'VITE_PROXY') {
       try {
-        realName = JSON.parse(realName);
+        realName = JSON.parse(realName)
       } catch (error) {
         // 如果解析失败，保持原值
-        console.warn(`Failed to parse ${envName}:`, error.message);
+        console.warn(`Failed to parse ${envName}:`, error.message)
       }
     }
 
-    ret[envName] = realName;
+    ret[envName] = realName
   }
 
-  return ret;
+  // 追加：规范化公共路径 VITE_PUBLIC_PATH
+  // 确保存在默认值，并统一首尾斜杠规则（以 / 开头并以 / 结尾）
+  if (!ret.VITE_PUBLIC_PATH || typeof ret.VITE_PUBLIC_PATH !== 'string') {
+    ret.VITE_PUBLIC_PATH = '/'
+  }
+  if (ret.VITE_PUBLIC_PATH) {
+    let base = ret.VITE_PUBLIC_PATH
+    if (!base.startsWith('/')) base = '/' + base
+    if (!base.endsWith('/')) base = base + '/'
+    ret.VITE_PUBLIC_PATH = base
+  }
+
+  // 追加：控制是否生成构建 sourcemap 的开关
+  // 支持在 .env.* 中以 VITE_BUILD_SOURCEMAP=true/false 配置；默认 false
+  if (typeof ret.VITE_BUILD_SOURCEMAP === 'undefined') {
+    ret.VITE_BUILD_SOURCEMAP = false
+  }
+
+  return ret
 }
 
 /**
@@ -104,7 +123,7 @@ export function wrapperEnv(envConf) {
  * getRootPath('dist') // 返回 /project/dist
  */
 export function getRootPath(...dir) {
-  return path.resolve(process.cwd(), ...dir);
+  return path.resolve(process.cwd(), ...dir)
 }
 
 /**
